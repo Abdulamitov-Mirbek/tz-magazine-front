@@ -1,0 +1,79 @@
+# Logs
+## Node
+node_modules/
+
+## Production build
+dist/
+build/
+out/
+
+## Vite / caching
+.vite/
+.vite-deps/
+.cache/
+
+## TypeScript
+*.tsbuildinfo
+
+## Environment
+.env
+.env.local
+.env.*.local
+
+## Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+## OS files
+.DS_Store
+Thumbs.db
+
+## IDEs and editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+## Coverage
+coverage/
+.nyc_output/
+
+## Testing output
+playwright-report/
+
+## Misc
+.eslintcache
+.parcel-cache/
+/.pnp*
+*.pem
+*.key
+
+# Local dev
+.history/
+
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
