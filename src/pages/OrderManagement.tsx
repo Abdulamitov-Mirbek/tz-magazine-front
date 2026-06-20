@@ -21,10 +21,16 @@ const StatusBadge = ({ status }: { status: string }) => {
 
   const Icon = icons[status] || Clock;
 
+  const labels: Record<string, string> = {
+    pending: 'В ожидании',
+    shipped: 'Отправлен',
+    cancelled: 'Отменен',
+  };
+
   return (
     <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border ${styles[status]}`}>
       <Icon size={12} />
-      {status.charAt(0).toUpperCase() + status.slice(1)}
+      {labels[status] || status}
     </span>
   );
 };
@@ -36,15 +42,15 @@ export const OrderManagement = () => {
     try {
       await updateStatus({ id, status });
     } catch (err) {
-      alert('Failed to update status');
+      alert('Не удалось обновить статус');
     }
   };
 
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">Orders</h1>
-        <p className="text-sm text-gray-500 mt-1">Track and manage customer orders.</p>
+        <h1 className="text-2xl font-bold text-gray-900">Заказы</h1>
+        <p className="text-sm text-gray-500 mt-1">Отслеживайте и управляйте заказами клиентов.</p>
       </div>
 
       <div className="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm">
@@ -52,20 +58,24 @@ export const OrderManagement = () => {
           <table>
             <thead>
               <tr>
-                <th>Order ID</th>
-                <th>Customer</th>
-                <th>Date</th>
-                <th>Total</th>
-                <th>Status</th>
-                <th className="text-right">Actions</th>
+                <th>ID заказа</th>
+                <th>Клиент</th>
+                <th>Дата</th>
+                <th>Сумма</th>
+                <th>Статус</th>
+                <th className="text-right">Действия</th>
               </tr>
             </thead>
             <tbody>
               {isLoading ? (
                 <tr>
-                  <td colSpan={6} className="text-center py-10 text-gray-400">Loading orders...</td>
+                  <td colSpan={6} className="text-center py-10 text-gray-400">Загрузка заказов...</td>
                 </tr>
-              ) : data?.results.map((order) => (
+              ) : !data?.results ? (
+                <tr>
+                  <td colSpan={6} className="text-center py-10 text-red-400">Не удалось загрузить заказы. Попробуйте позже.</td>
+                </tr>
+              ) : data.results.map((order) => (
                 <tr key={order.id}>
                   <td className="font-medium text-gray-900">#ORD-{order.id}</td>
                   <td>
@@ -75,7 +85,7 @@ export const OrderManagement = () => {
                     </div>
                   </td>
                   <td className="text-gray-600">
-                    {new Date(order.created_at).toLocaleDateString()}
+                    {new Date(order.created_at).toLocaleDateString('ru-RU')}
                   </td>
                   <td className="font-medium text-gray-900">${order.total_price}</td>
                   <td>
@@ -89,13 +99,13 @@ export const OrderManagement = () => {
                             onClick={() => handleStatusUpdate(order.id, 'shipped')}
                             className="text-xs font-semibold text-green-600 hover:text-green-700 px-3 py-1.5 rounded-lg hover:bg-green-50 transition-colors"
                           >
-                            Mark Shipped
+                            Отметить отправленным
                           </button>
                           <button 
                             onClick={() => handleStatusUpdate(order.id, 'cancelled')}
                             className="text-xs font-semibold text-red-600 hover:text-red-700 px-3 py-1.5 rounded-lg hover:bg-red-50 transition-colors"
                           >
-                            Cancel
+                            Отменить
                           </button>
                         </>
                       )}

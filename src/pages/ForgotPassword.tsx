@@ -18,7 +18,7 @@ export const ForgotPassword = () => {
         <div className="mb-6">
           <Link to="/login" className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-primary transition-colors">
             <ArrowLeft size={16} />
-            Back to Sign In
+            Назад
           </Link>
         </div>
 
@@ -28,18 +28,18 @@ export const ForgotPassword = () => {
               <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mx-auto mb-4">
                 <Mail size={24} />
               </div>
-              <h1 className="text-2xl font-bold text-gray-900">Reset Password</h1>
-              <p className="text-sm text-gray-500 mt-2">Enter your email and we'll send you a link to reset your password.</p>
+              <h1 className="text-2xl font-bold text-gray-900">Сброс пароля</h1>
+              <p className="text-sm text-gray-500 mt-2">Введите ваш email, и мы отправим вам ссылку для сброса пароля.</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Email Address</label>
+                <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Email</label>
                 <input 
                   type="email" 
                   required
                   className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
-                  placeholder="admin@executive.com"
+                  placeholder="admin@example.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -49,7 +49,7 @@ export const ForgotPassword = () => {
                 type="submit"
                 className="w-full bg-primary text-white py-3 rounded-xl font-semibold text-sm hover:bg-primary/90 transition-colors mt-2"
               >
-                Send Reset Link
+                Отправить ссылку
               </button>
             </form>
           </>
@@ -58,16 +58,16 @@ export const ForgotPassword = () => {
             <div className="w-12 h-12 bg-green-50 text-green-600 rounded-xl flex items-center justify-center mx-auto mb-4">
               <Mail size={24} />
             </div>
-            <h1 className="text-2xl font-bold text-gray-900">Check Your Email</h1>
+            <h1 className="text-2xl font-bold text-gray-900">Проверьте почту</h1>
             <p className="text-sm text-gray-500 mt-2 px-4">
-              We've sent a password reset link to <span className="font-bold text-gray-900">{email}</span>. Please check your inbox.
+              Мы отправили ссылку для сброса пароля на <span className="font-bold text-gray-900">{email}</span>. Пожалуйста, проверьте ваш почтовый ящик.
             </p>
             <div className="mt-8">
               <button 
                 onClick={() => setSubmitted(false)}
                 className="text-sm font-bold text-primary hover:underline"
               >
-                Try another email
+                Попробовать другой email
               </button>
             </div>
           </div>

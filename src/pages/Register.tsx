@@ -30,7 +30,7 @@ export const Register = () => {
       setError(
         err.response?.data?.message ||
           err.response?.data?.detail ||
-          "Registration failed. Please check your details.",
+          "Регистрация не удалась. Проверьте введенные данные.",
       );
     }
   };
@@ -42,9 +42,9 @@ export const Register = () => {
           <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mx-auto mb-4">
             <UserPlus size={24} />
           </div>
-          <h1 className="text-2xl font-bold text-gray-900">Create Account</h1>
+          <h1 className="text-2xl font-bold text-gray-900">Создать аккаунт</h1>
           <p className="text-sm text-gray-500 mt-2">
-            Join the executive administration system
+            Присоединитесь к системе управления
           </p>
         </div>
 
@@ -52,7 +52,7 @@ export const Register = () => {
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">
-                First Name
+                Имя
               </label>
               <input
                 type="text"
@@ -66,7 +66,7 @@ export const Register = () => {
             </div>
             <div>
               <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">
-                Last Name
+                Фамилия
               </label>
               <input
                 type="text"
@@ -81,7 +81,7 @@ export const Register = () => {
           </div>
           <div>
             <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">
-              Username
+              Имя пользователя
             </label>
             <input
               type="text"
@@ -109,7 +109,7 @@ export const Register = () => {
           </div>
           <div>
             <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">
-              Password
+              Пароль
             </label>
             <input
               type="password"
@@ -129,18 +129,18 @@ export const Register = () => {
             disabled={isRegistering}
             className="w-full bg-primary text-white py-3 rounded-xl font-semibold text-sm hover:bg-primary/90 transition-colors disabled:opacity-50 mt-2"
           >
-            {isRegistering ? "Creating Account..." : "Register"}
+            {isRegistering ? "Создание аккаунта..." : "Зарегистрироваться"}
           </button>
         </form>
 
         <div className="mt-6 text-center">
           <p className="text-xs text-gray-500">
-            Already have an account?{" "}
+            Уже есть аккаунт?{" "}
             <Link
               to="/login"
               className="text-primary font-bold hover:underline"
             >
-              Sign In
+              Войти
             </Link>
           </p>
         </div>

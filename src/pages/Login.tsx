@@ -20,7 +20,7 @@ export const Login = () => {
       setError(
         err.response?.data?.message ||
           err.response?.data?.detail ||
-          "Invalid credentials",
+          "Неверные учетные данные",
       );
     }
   };
@@ -32,9 +32,9 @@ export const Login = () => {
           <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mx-auto mb-4">
             <LogIn size={24} />
           </div>
-          <h1 className="text-2xl font-bold text-gray-900">Welcome Back</h1>
+          <h1 className="text-2xl font-bold text-gray-900">С возвращением</h1>
           <p className="text-sm text-gray-500 mt-2">
-            Sign in to your executive dashboard
+            Войдите в панель управления
           </p>
         </div>
 
@@ -47,14 +47,14 @@ export const Login = () => {
               type="email"
               required
               className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
-              placeholder="Enter your email"
+              placeholder="Введите ваш email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div>
             <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">
-              Password
+              Пароль
             </label>
             <input
               type="password"
@@ -73,7 +73,7 @@ export const Login = () => {
               to="/forgot-password"
               className="text-xs font-semibold text-primary hover:underline"
             >
-              Forgot Password?
+              Забыли пароль?
             </Link>
           </div>
 
@@ -82,18 +82,18 @@ export const Login = () => {
             disabled={isLoggingIn}
             className="w-full bg-primary text-white py-3 rounded-xl font-semibold text-sm hover:bg-primary/90 transition-colors disabled:opacity-50 mt-2"
           >
-            {isLoggingIn ? "Signing in..." : "Sign In"}
+            {isLoggingIn ? "Вход..." : "Войти"}
           </button>
         </form>
 
         <div className="mt-6 text-center">
           <p className="text-xs text-gray-500">
-            Don't have an account?{" "}
+            Нет аккаунта?{" "}
             <Link
               to="/register"
               className="text-primary font-bold hover:underline"
             >
-              Register Now
+              Зарегистрироваться
             </Link>
           </p>
         </div>

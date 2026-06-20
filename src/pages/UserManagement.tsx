@@ -5,7 +5,7 @@ export const UserManagement = () => {
   const { data: users, isLoading, deleteUser } = useUsers();
 
   const handleDelete = async (id: number) => {
-    if (window.confirm('Are you sure you want to remove this user?')) {
+    if (window.confirm('Вы уверены, что хотите удалить этого пользователя?')) {
       await deleteUser(id);
     }
   };
@@ -13,13 +13,13 @@ export const UserManagement = () => {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">User Management</h1>
-        <p className="text-sm text-gray-500 mt-1">Control system access levels and user accounts.</p>
+        <h1 className="text-2xl font-bold text-gray-900">Управление пользователями</h1>
+        <p className="text-sm text-gray-500 mt-1">Контролируйте уровни доступа и учетные записи.</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {isLoading ? (
-          <div className="col-span-full text-center py-10 text-gray-400">Loading users...</div>
+          <div className="col-span-full text-center py-10 text-gray-400">Загрузка пользователей...</div>
         ) : users?.map((user) => (
           <div key={user.id} className="bg-white border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow relative group">
             <div className="flex items-start justify-between mb-4">
@@ -48,12 +48,12 @@ export const UserManagement = () => {
                 {user.role === 'admin' ? (
                   <span className="inline-flex items-center gap-1.5 text-xs font-bold text-primary uppercase tracking-wider">
                     <ShieldAlert size={14} />
-                    Administrator
+                    Администратор
                   </span>
                 ) : (
                   <span className="inline-flex items-center gap-1.5 text-xs font-bold text-gray-400 uppercase tracking-wider">
                     <UserIcon size={14} />
-                    Standard User
+                    Пользователь
                   </span>
                 )}
               </div>

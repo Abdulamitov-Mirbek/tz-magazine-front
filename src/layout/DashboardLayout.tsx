@@ -36,14 +36,14 @@ export const DashboardLayout = () => {
       <aside className="w-64 border-r border-gray-100 flex flex-col fixed h-full bg-white z-20">
         <div className="p-6">
           <h1 className="text-xl font-bold tracking-tight text-primary">EXECUTIVE</h1>
-          <p className="text-[10px] uppercase tracking-[0.2em] text-gray-400 mt-1">Admin Dashboard</p>
+          <p className="text-[10px] uppercase tracking-[0.2em] text-gray-400 mt-1">Панель администратора</p>
         </div>
 
         <nav className="flex-1 mt-4">
-          <SidebarLink to="/" icon={LayoutDashboard}>Dashboard</SidebarLink>
-          <SidebarLink to="/products" icon={Package}>Products</SidebarLink>
-          <SidebarLink to="/orders" icon={ShoppingCart}>Orders</SidebarLink>
-          <SidebarLink to="/users" icon={Users}>Users</SidebarLink>
+          <SidebarLink to="/" icon={LayoutDashboard}>Дашборд</SidebarLink>
+          <SidebarLink to="/products" icon={Package}>Товары</SidebarLink>
+          <SidebarLink to="/orders" icon={ShoppingCart}>Заказы</SidebarLink>
+          <SidebarLink to="/users" icon={Users}>Пользователи</SidebarLink>
         </nav>
 
         <div className="p-4 border-t border-gray-50">
@@ -52,7 +52,7 @@ export const DashboardLayout = () => {
             className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-gray-600 hover:text-red-600 transition-colors w-full"
           >
             <LogOut size={18} />
-            Sign Out
+            Выйти
           </button>
         </div>
       </aside>
@@ -65,7 +65,7 @@ export const DashboardLayout = () => {
             <button className="text-gray-400 hover:text-gray-600">
               <Menu size={20} />
             </button>
-            <h2 className="text-sm font-semibold text-gray-700">Overview</h2>
+            <h2 className="text-sm font-semibold text-gray-700">Обзор</h2>
           </div>
 
           <div className="flex items-center gap-6">
@@ -77,7 +77,7 @@ export const DashboardLayout = () => {
             <div className="flex items-center gap-3 pl-6 border-l border-gray-100">
               <div className="text-right">
                 <p className="text-sm font-medium text-gray-900">{user?.first_name} {user?.last_name}</p>
-                <p className="text-xs text-gray-500 capitalize">{user?.role}</p>
+                <p className="text-xs text-gray-500 capitalize">{user?.role === 'admin' ? 'Администратор' : 'Пользователь'}</p>
               </div>
               <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xs">
                 {user?.first_name?.[0]}{user?.last_name?.[0]}
